@@ -1,0 +1,196 @@
+﻿@model (EHealthCare.App_Start.UsersAddress, List<EHealthCare.App_Start.UserImage>)
+
+@{
+    ViewBag.Title = "Profile";
+    Layout = "~/Areas/Hospital/Views/Shared/_Layout.cshtml";
+}
+
+@section style {
+    <link rel="stylesheet" type="text/css" href="~/Areas/Hospital/Content/css/dataTables.bootstrap4.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/Areas/Hospital/Content/css/responsive.bootstrap4.min.css" />
+}
+
+<div class="row">
+
+    @{Html.RenderAction("ProfileCard", "Home", new { IsLink = false }); }
+
+    <div class="col-xl-8">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Address</h4>
+
+                @using (Html.BeginForm("PutProfileAddress", "Home", FormMethod.Post))
+                {
+                    @Html.HiddenFor(e => e.Item1.Id, new { Name = "Id" })
+
+                    <div class="mb-3 row">
+                        @Html.LabelFor(e => e.Item1.Building, new { @class = "col-md-2 col-form-label" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(e => e.Item1.Building, new { htmlAttributes = new { @class = "form-control", @required = "required", Name = "Building" } })
+                        </div>
+                    </div>
+
+                    <div class="mb-3 row">
+                        @Html.LabelFor(e => e.Item1.Street, new { @class = "col-md-2 col-form-label" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(e => e.Item1.Street, new { htmlAttributes = new { @class = "form-control", @required = "required", Name = "Street" } })
+                        </div>
+                    </div>
+
+                    <div class="mb-3 row">
+                        <label for="Country" class="col-md-2 col-form-label">Country</label>
+                        <div class="col-md-10">
+                            <select class="form-select" id="Country">
+                                <option value="">Select Country</option>
+                                @foreach (SelectListItem country in (List<SelectListItem>)ViewData["Countries"])
+                                {
+                                    <option value="@country.Value">@country.Text</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="mb-3 row">
+                        <label for="State" class="col-md-2 col-form-label">State</label>
+                        <div class="col-md-10">
+                            <select class="form-select" id="State"></select>
+                        </div>
+                    </div>
+
+                    <div class="mb-3 row">
+                        <label for="City" class="col-md-2 col-form-label">City</label>
+                        <div class="col-md-10">
+                            <select class="form-select" id="City" name="CityId"></select>
+                        </div>
+                    </div>
+
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary w-md">Submit</button>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-6">
+        <div class="card">
+            <div class="card-body">
+
+                @using (Html.BeginForm("PutProfileImage", "Home", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+                {
+                    <div class="mb-3 row">
+                        <label for="ProfileImage" class="col-md-2 col-form-label">Profile Image</label>
+                        <div class="col-md-10">
+                            <input type="file" class="form-control" name="ProfileImage" id="ProfileImage" required />
+                        </div>
+                    </div>
+
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary w-md">Submit</button>
+                    </div>
+
+                }
+            </div>
+        </div>
+
+        <div class="card mt-3">
+            <div class="card-body">
+
+                @using (Html.BeginForm("PostImage", "Home", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+                {
+                    <div class="mb-3 row">
+                        <label for="OtherImage" class="col-md-2 col-form-label">Other Image</label>
+                        <div class="col-md-10">
+                            <input type="file" class="form-control" name="OtherImage" id="OtherImage" required />
+                        </div>
+                    </div>
+
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary w-md">Submit</button>
+                    </div>
+
+                }
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-6">
+        <div class="card">
+            <div class="card-body">
+
+                <div class="table-responsive">
+                    <table id="images" class="table table-bordered dt-responsive nowrap w-100">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Image</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @{ int i = 1; }
+                            @foreach (EHealthCare.App_Start.UserImage image in Model.Item2)
+                            {
+                                <tr>
+                                    <td>@i @{ i++; }</td>
+                                    <td><img src="~/Content/Images/@image.Name" width="50"></td>
+                                    <td>@Html.ActionLink(" ", "DeleteImage", "Home", new { Id = image.Id }, new { @class = "fa fa-trash" })</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts {
+    <script src="~/Areas/Hospital/Content/js/jquery.dataTables.min.js"></script>
+    <script src="~/Areas/Hospital/Content/js/dataTables.bootstrap4.min.js"></script>
+    <script src="~/Areas/Hospital/Content/js/dataTables.buttons.min.js"></script>
+    <script src="~/Areas/Hospital/Content/js/dataTables.responsive.min.js"></script>
+
+    <script type="text/javascript">
+        $("#Country").change(function () {
+            $.ajax({
+                url: '@Url.Action("GetStateByCountryId", "Home", new { Area ="Hospital" })',
+                data: { "CountryId": $("#Country").val() },
+                success: function (data) {
+                    $("#State").html("");
+
+                    $("#State").append("<option value>Select State</option>");
+
+                    $.each(data, function (i, state) {
+                        $("#State").append("<option value=" + state.Value + ">" + state.Text + "</option>");
+                    });
+                }
+            });
+        });
+
+        $("#State").change(function () {
+            $.ajax({
+                url: '@Url.Action("GetCitiesByStateId", "Home", new { Area ="Hospital" })',
+                data: { "StateId": $("#State").val() },
+                success: function (data) {
+                    $("#City").html("");
+
+                    $("#City").append("<option value>Select City</option>");
+
+                    $.each(data, function (i, city) {
+                        $("#City").append("<option value=" + city.Value + ">" + city.Text + "</option>");
+                    });
+                }
+            });
+        });
+
+        $(document).ready(function () {
+            $("#images")
+                .DataTable({ lengthChange: 1 })
+                .buttons()
+                .container()
+                .appendTo("#datatable_wrapper .col-md-6:eq(0)"),
+                $(".dataTables_length select").addClass("form-select form-select-sm");
+        });
+    </script>
+}

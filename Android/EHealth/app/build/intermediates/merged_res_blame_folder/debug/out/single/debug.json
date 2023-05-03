@@ -1,0 +1,206 @@
+[
+    {
+        "merged": "com.example.ehealth.app-merged_res-29:/mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "com.example.ehealth.app-main-31:/mipmap-mdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.example.ehealth.app-merged_res-29:/drawable_slider2.png.flat",
+        "source": "com.example.ehealth.app-main-31:/drawable/slider2.png"
+    },
+    {
+        "merged": "com.example.ehealth.app-merged_res-29:/drawable_style_edittext.xml.flat",
+        "source": "com.example.ehealth.app-main-31:/drawable/style_edittext.xml"
+    },
+    {
+        "merged": "com.example.ehealth.app-merged_res-29:/layout_slider_image.xml.flat",
+        "source": "com.example.ehealth.app-main-31:/layout/slider_image.xml"
+    },
+    {
+        "merged": "com.example.ehealth.app-merged_res-29:/layout_card_doctor.xml.flat",
+        "source": "com.example.ehealth.app-main-31:/layout/card_doctor.xml"
+    },
+    {
+        "merged": "com.example.ehealth.app-merged_res-29:/drawable_hospital3.png.flat",
+        "source": "com.example.ehealth.app-main-31:/drawable/hospital3.png"
+    },
+    {
+        "merged": "com.example.ehealth.app-merged_res-29:/xml_network_security_config.xml.flat",
+        "source": "com.example.ehealth.app-main-31:/xml/network_security_config.xml"
+    },
+    {
+        "merged": "com.example.ehealth.app-merged_res-29:/drawable_half_ractangle_drawable.xml.flat",
+        "source": "com.example.ehealth.app-main-31:/drawable/half_ractangle_drawable.xml"
+    },
+    {
+        "merged": "com.example.ehealth.app-merged_res-29:/mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.ehealth.app-main-31:/mipmap-mdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.example.ehealth.app-merged_res-29:/layout_activity_registration.xml.flat",
+        "source": "com.example.ehealth.app-main-31:/layout/activity_registration.xml"
+    },
+    {
+        "merged": "com.example.ehealth.app-merged_res-29:/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.ehealth.app-main-31:/mipmap-xxxhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.example.ehealth.app-merged_res-29:/layout_activity_doctor.xml.flat",
+        "source": "com.example.ehealth.app-main-31:/layout/activity_doctor.xml"
+    },
+    {
+        "merged": "com.example.ehealth.app-merged_res-29:/drawable_google.png.flat",
+        "source": "com.example.ehealth.app-main-31:/drawable/google.png"
+    },
+    {
+        "merged": "com.example.ehealth.app-merged_res-29:/drawable_profile.png.flat",
+        "source": "com.example.ehealth.app-main-31:/drawable/profile.png"
+    },
+    {
+        "merged": "com.example.ehealth.app-merged_res-29:/drawable_shape_bottom_radius.xml.flat",
+        "source": "com.example.ehealth.app-main-31:/drawable/shape_bottom_radius.xml"
+    },
+    {
+        "merged": "com.example.ehealth.app-merged_res-29:/layout_activity_login.xml.flat",
+        "source": "com.example.ehealth.app-main-31:/layout/activity_login.xml"
+    },
+    {
+        "merged": "com.example.ehealth.app-merged_res-29:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "com.example.ehealth.app-main-31:/mipmap-anydpi-v26/ic_launcher.xml"
+    },
+    {
+        "merged": "com.example.ehealth.app-merged_res-29:/layout_activity_hospital.xml.flat",
+        "source": "com.example.ehealth.app-main-31:/layout/activity_hospital.xml"
+    },
+    {
+        "merged": "com.example.ehealth.app-merged_res-29:/mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.ehealth.app-main-31:/mipmap-xhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.example.ehealth.app-merged_res-29:/layout_card_doctor_specialization.xml.flat",
+        "source": "com.example.ehealth.app-main-31:/layout/card_doctor_specialization.xml"
+    },
+    {
+        "merged": "com.example.ehealth.app-merged_res-29:/xml_data_extraction_rules.xml.flat",
+        "source": "com.example.ehealth.app-main-31:/xml/data_extraction_rules.xml"
+    },
+    {
+        "merged": "com.example.ehealth.app-merged_res-29:/mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "com.example.ehealth.app-main-31:/mipmap-xxxhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.example.ehealth.app-merged_res-29:/drawable_slider1.png.flat",
+        "source": "com.example.ehealth.app-main-31:/drawable/slider1.png"
+    },
+    {
+        "merged": "com.example.ehealth.app-merged_res-29:/drawable_ic_baseline_arrow_back_ios_24.xml.flat",
+        "source": "com.example.ehealth.app-main-31:/drawable/ic_baseline_arrow_back_ios_24.xml"
+    },
+    {
+        "merged": "com.example.ehealth.app-merged_res-29:/drawable_hospital2.png.flat",
+        "source": "com.example.ehealth.app-main-31:/drawable/hospital2.png"
+    },
+    {
+        "merged": "com.example.ehealth.app-merged_res-29:/drawable_logo.png.flat",
+        "source": "com.example.ehealth.app-main-31:/drawable/logo.png"
+    },
+    {
+        "merged": "com.example.ehealth.app-merged_res-29:/layout_card_dashboard.xml.flat",
+        "source": "com.example.ehealth.app-main-31:/layout/card_dashboard.xml"
+    },
+    {
+        "merged": "com.example.ehealth.app-merged_res-29:/drawable_ic_launcher_background.xml.flat",
+        "source": "com.example.ehealth.app-main-31:/drawable/ic_launcher_background.xml"
+    },
+    {
+        "merged": "com.example.ehealth.app-merged_res-29:/layout_slider_appointment.xml.flat",
+        "source": "com.example.ehealth.app-main-31:/layout/slider_appointment.xml"
+    },
+    {
+        "merged": "com.example.ehealth.app-merged_res-29:/mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.ehealth.app-main-31:/mipmap-xxhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.example.ehealth.app-merged_res-29:/mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "com.example.ehealth.app-main-31:/mipmap-xxhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.example.ehealth.app-merged_res-29:/drawable_ic_baseline_call_24.xml.flat",
+        "source": "com.example.ehealth.app-main-31:/drawable/ic_baseline_call_24.xml"
+    },
+    {
+        "merged": "com.example.ehealth.app-merged_res-29:/layout_activity_dashboard.xml.flat",
+        "source": "com.example.ehealth.app-main-31:/layout/activity_dashboard.xml"
+    },
+    {
+        "merged": "com.example.ehealth.app-merged_res-29:/drawable_ic_baseline_filter_alt_24.xml.flat",
+        "source": "com.example.ehealth.app-main-31:/drawable/ic_baseline_filter_alt_24.xml"
+    },
+    {
+        "merged": "com.example.ehealth.app-merged_res-29:/drawable_doctor.png.flat",
+        "source": "com.example.ehealth.app-main-31:/drawable/doctor.png"
+    },
+    {
+        "merged": "com.example.ehealth.app-merged_res-29:/mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "com.example.ehealth.app-main-31:/mipmap-xhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.example.ehealth.app-merged_res-29:/layout_activity_doctor_detail.xml.flat",
+        "source": "com.example.ehealth.app-main-31:/layout/activity_doctor_detail.xml"
+    },
+    {
+        "merged": "com.example.ehealth.app-merged_res-29:/layout_activity_main.xml.flat",
+        "source": "com.example.ehealth.app-main-31:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.example.ehealth.app-merged_res-29:/mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.ehealth.app-main-31:/mipmap-hdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.example.ehealth.app-merged_res-29:/layout_slider_splash.xml.flat",
+        "source": "com.example.ehealth.app-main-31:/layout/slider_splash.xml"
+    },
+    {
+        "merged": "com.example.ehealth.app-merged_res-29:/mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "com.example.ehealth.app-main-31:/mipmap-hdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.example.ehealth.app-merged_res-29:/drawable-v24_ic_launcher_foreground.xml.flat",
+        "source": "com.example.ehealth.app-main-31:/drawable-v24/ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "com.example.ehealth.app-merged_res-29:/layout_appbar_layout.xml.flat",
+        "source": "com.example.ehealth.app-main-31:/layout/appbar_layout.xml"
+    },
+    {
+        "merged": "com.example.ehealth.app-merged_res-29:/drawable_hospital.png.flat",
+        "source": "com.example.ehealth.app-main-31:/drawable/hospital.png"
+    },
+    {
+        "merged": "com.example.ehealth.app-merged_res-29:/drawable_ic_baseline_email_24.xml.flat",
+        "source": "com.example.ehealth.app-main-31:/drawable/ic_baseline_email_24.xml"
+    },
+    {
+        "merged": "com.example.ehealth.app-merged_res-29:/drawable_slider3.png.flat",
+        "source": "com.example.ehealth.app-main-31:/drawable/slider3.png"
+    },
+    {
+        "merged": "com.example.ehealth.app-merged_res-29:/layout_activity_profile.xml.flat",
+        "source": "com.example.ehealth.app-main-31:/layout/activity_profile.xml"
+    },
+    {
+        "merged": "com.example.ehealth.app-merged_res-29:/xml_backup_rules.xml.flat",
+        "source": "com.example.ehealth.app-main-31:/xml/backup_rules.xml"
+    },
+    {
+        "merged": "com.example.ehealth.app-merged_res-29:/layout_activity_hospital_detail.xml.flat",
+        "source": "com.example.ehealth.app-main-31:/layout/activity_hospital_detail.xml"
+    },
+    {
+        "merged": "com.example.ehealth.app-merged_res-29:/layout_card_hospital.xml.flat",
+        "source": "com.example.ehealth.app-main-31:/layout/card_hospital.xml"
+    },
+    {
+        "merged": "com.example.ehealth.app-merged_res-29:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "com.example.ehealth.app-main-31:/mipmap-anydpi-v26/ic_launcher_round.xml"
+    }
+]

@@ -1,0 +1,197 @@
+<div class="page-wrapper">
+    <div class="container-fluid">
+        <div class="row page-titles">
+            <div class="col-md-5 align-self-center">
+                <h3 class="text-themecolor">Dashboard</h3>
+            </div>
+            <div class="col-md-7 align-self-center">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item active"><a href="javascript:void(0)">Dashboard</a></li>
+                </ol>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Doctor Schedule</h4>
+                        <a href="#" data-toggle="modal" data-target="#Item1" data-whatever="@mdo" class="link-primary">Add Morning Schedule</a>
+
+                        <a href="#" data-toggle="modal" data-target="#Item2" data-whatever="@mdo" class="link-primary" style="margin-left:10px;" >Add Evening Schedule</a>
+                        <table id="example23" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
+                            <thead>
+                                <tr>
+                                    <th>Hospital Name</th>
+                                    <th>Date</th>
+                                    <th>M Start Time</th>
+                                    <th>M End Time</th>
+                                    <th>E Start Time</th>
+                                    <th>E End Time</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let userschedule of userSchedules">
+                                    <th>{{userschedule.HospitalName}}</th>
+                                    <th>{{userschedule.ScheduleDate}}</th>
+                                    <th>{{userschedule.MorningStart}}</th>
+                                    <th>{{userschedule.MorningEnd}}</th>
+                                    <th>{{userschedule.EveningStart}}</th>
+                                    <th>{{userschedule.EveningEnd}}</th>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>
+
+<div class="modal fade container-fluid" id="Item1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="max-width: 60%;" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h3 class="font-weight-bold m-t-10">EHealth Care</h3>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <form class="form-horizontal form-material" ngNativeValidate id="userform" (ngSubmit)="onMorningSubmit()">
+                <h3 class="box-title m-t-0 m-b-0">Update Morning Schedule</h3>
+                <div class="form-group m-t-20">
+                    <div class="row container">
+                        <div class="col-sm-6">
+                            <div class="row container">
+                                <div class="col-sm-4">
+                                    <label for="recipient-name" class="col-form-label">Date:</label>
+                                </div>
+                                <div class="col-sm-8">
+                                    <input class="form-control" type="date"  [ngModelOptions]="{standalone: true}" [(ngModel)]="selectedDate" [min]="minDate" [max]="maxDate" required="" placeholder="First Name" >
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="row container">
+                                <div class="col-sm-4">
+                                    <label for="recipient-name" class="col-form-label">Hospital:</label>
+                                </div>
+                                <div class="col-sm-8">
+                                    <select class="form-control"  required="" data-placeholder="Choose a Category" tabindex="1" [ngModelOptions]="{standalone: true}" [(ngModel)]="hospitalId">
+                                        <option *ngFor="let u of users" [value]="u.Id" >{{u.FirstName}} {{u.LastName}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="row container">
+                        <div class="col-sm-6">
+                            <div class="row container">
+                                <div class="col-sm-8">
+                                    <label for="recipient-name" class="col-form-label">Morning Start Time:</label>
+                                </div>
+                                <div class="col-sm-4">
+                                    <input class="form-control" type="time" required="" placeholder="First Name" [ngModelOptions]="{standalone: true}" [(ngModel)]="morningStartTime">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="row container">
+                                <div class="col-sm-8">
+                                    <label for="recipient-name" class="col-form-label">Morning End Time:</label>
+                                </div>
+                                <div class="col-sm-4">
+                                    <input class="form-control" type="time" required="" placeholder="First Name" [ngModelOptions]="{standalone: true}" [(ngModel)]="morningEndTime">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-group text-left col">
+                    <button type="reset" class="btn btn-secondary m-r-10" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Update</button>
+                </div>
+            </form>
+        </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade container-fluid" id="Item2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="max-width: 60%;" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h3 class="font-weight-bold m-t-10">EHealth Care</h3>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <form class="form-horizontal form-material" ngNativeValidate id="userform" (ngSubmit)="onEveningSubmit()">
+                <h3 class="box-title m-t-0 m-b-0">Update Evening Schedule</h3>
+                <div class="form-group m-t-20">
+                    <div class="row container">
+                        <div class="col-sm-6">
+                            <div class="row container">
+                                <div class="col-sm-4">
+                                    <label for="recipient-name" class="col-form-label">Date:</label>
+                                </div>
+                                <div class="col-sm-8">
+                                    <input class="form-control" type="date"  [ngModelOptions]="{standalone: true}" [(ngModel)]="selectedDate" [min]="minDate" [max]="maxDate" required="" placeholder="First Name" >
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="row container">
+                                <div class="col-sm-4">
+                                    <label for="recipient-name" class="col-form-label">Hospital:</label>
+                                </div>
+                                <div class="col-sm-8">
+                                    <select class="form-control"  required="" data-placeholder="Choose a Category" tabindex="1" [ngModelOptions]="{standalone: true}" [(ngModel)]="hospitalId">
+                                        <option *ngFor="let u of users" [value]="u.Id" >{{u.FirstName}} {{u.LastName}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="row container">
+                        <div class="col-sm-6">
+                            <div class="row container">
+                                <div class="col-sm-8">
+                                    <label for="recipient-name" class="col-form-label">Evening Start Time:</label>
+                                </div>
+                                <div class="col-sm-4">
+                                    <input class="form-control" type="time" required="" placeholder="First Name" [ngModelOptions]="{standalone: true}" [(ngModel)]="eveningStartTime">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="row container">
+                                <div class="col-sm-8">
+                                    <label for="recipient-name" class="col-form-label">Evening End Time:</label>
+                                </div>
+                                <div class="col-sm-4">
+                                    <input class="form-control" type="time" required="" placeholder="First Name" [ngModelOptions]="{standalone: true}" [(ngModel)]="eveningEndTime">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-group text-left col">
+                    <button type="button" class="btn btn-secondary m-r-10" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Update</button>
+                </div>
+            </form>
+        </div>
+        </div>
+    </div>
+</div>

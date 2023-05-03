@@ -1,0 +1,136 @@
+﻿@{
+    Layout = null;
+}
+
+<!doctype html>
+<html lang="en">
+<head>
+    @{ Html.RenderPartial("_StyleSheet"); }
+    @RenderSection("style", required: false)
+</head>
+
+<body data-topbar="dark" data-layout="horizontal">
+    <div id="layout-wrapper">
+        <header id="page-topbar">
+            <div class="navbar-header">
+                <div class="d-flex">
+                    <div class="navbar-brand-box">
+                        <a href="/Hospital" class="logo logo-light">
+                            <img src="~/Areas/Hospital/Content/images/healthcare.png" alt="" height="35">
+                        </a>
+                    </div>
+                    <button type="button" class="btn btn-sm px-3 font-size-16 d-lg-none header-item waves-effect waves-light"
+                            data-bs-toggle="collapse" data-bs-target="#topnav-menu-content">
+                        <i class="fa fa-fw fa-bars"></i>
+                    </button>
+                    <form class="app-search d-none d-lg-block">
+                        <div class="position-relative">
+                            <input type="text" class="form-control" placeholder="Search...">
+                            <span class="bx bx-search-alt"></span>
+                        </div>
+                    </form>
+                </div>
+                <div class="d-flex">
+                    <div class="dropdown d-inline-block d-lg-none ms-2">
+                        <button type="button" class="btn header-item noti-icon waves-effect" id="page-header-search-dropdown"
+                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="mdi mdi-magnify"></i>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0" aria-labelledby="page-header-search-dropdown">
+                            <form class="p-3">
+                                <div class="form-group m-0">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" placeholder="Search ..." aria-label="Search input">
+                                        <button class="btn btn-primary" type="submit"><i class="mdi mdi-magnify"></i></button>
+                                    </div>
+                                </div>
+                            </form>.,
+                        </div>
+                    </div>
+                    <div class="dropdown d-none d-lg-inline-block ms-1">
+                        <button type="button" class="btn header-item noti-icon waves-effect" data-bs-toggle="fullscreen">
+                            <i class="bx bx-fullscreen"></i>
+                        </button>
+                    </div>
+
+                    <div class="dropdown d-inline-block">
+                        <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
+                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <img class="rounded-circle header-profile-user" src="~/Content/Images/@Session["ProfileImage"]" alt="Header Avatar">
+                            <span class="d-none d-xl-inline-block ms-1" key="t-henry">@Session["FirstName"]</span>
+                            <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-end">
+                            <a class="dropdown-item" href="/Hospital/Home/Profile">
+                                <i class="bx bx-user font-size-16 align-middle me-1"></i>
+                                <span key="t-profile">Profile</span>
+                            </a>
+                            <a class="dropdown-item" href="/Hospital/Home/ChangePassword">
+                                <i class="bx bx-key font-size-16 align-middle me-1"></i>
+                                <span key="t-profile">Change Password</span>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item text-danger" href="/Hospital/Home/Logout">
+                                <i class="bx bx-power-off font-size-16 align-middle me-1 text-danger"></i>
+                                <span key="t-logout">Logout</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="topnav">
+            <div class="container-fluid">
+                <nav class="navbar navbar-light navbar-expand-lg topnav-menu">
+                    <div class="collapse navbar-collapse" id="topnav-menu-content">
+                        <ul class="navbar-nav">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle arrow-none" href="/Hospital/Doctor" id="topnav-layout" role="button">
+                                    <i class="mdi mdi-doctor me-2"></i><span key="t-layouts">Doctor</span>
+                                </a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle arrow-none" href="/Hospital/Patient" id="topnav-layout" role="button">
+                                    <i class="dripicons-user-group me-2"></i><span key="t-layouts">Patients</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <div class="main-content">
+            <div class="page-content">
+                <div class="container-fluid">
+
+                    @if (ViewBag.Header != null)
+                    {
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                                    <h4 class="mb-sm-0 font-size-18">@ViewBag.Header</h4>
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                    @RenderBody()
+
+                </div>
+            </div>
+            <footer class="footer">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <script>document.write(new Date().getFullYear())</script> © Hospital.
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+    @{ Html.RenderPartial("_Script"); }
+    @RenderSection("scripts", required: false)
+</body>
+</html>

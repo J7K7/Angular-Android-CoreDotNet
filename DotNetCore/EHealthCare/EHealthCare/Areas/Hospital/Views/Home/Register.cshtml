@@ -1,0 +1,62 @@
+﻿@model EHealthCare.App_Start.User
+
+@{
+    ViewBag.Title = "Register";
+    TempData["UserTitle"] = "Free Register";
+    Layout = "~/Areas/Hospital/Views/Shared/_UserLayout.cshtml";
+}
+
+@using (Html.BeginForm("Register", "Home", FormMethod.Post, new { @class = "needs-validation" }))
+{
+    <div class="row">
+        <div class="mb-3 col-md-6">
+            @Html.LabelFor(e => e.FirstName, new { @class = "form-label" })
+            @Html.EditorFor(e => e.FirstName, new { htmlAttributes = new { @type = "text", @class = "form-control",
+                @placeholder = "Enter first name", @required = "required" } })
+        </div>
+
+        <div class="mb-3 col-md-6">
+            @Html.LabelFor(e => e.LastName, new { @class = "form-label" })
+            @Html.EditorFor(e => e.LastName, new { htmlAttributes = new { @type = "text", @class = "form-control",
+                @placeholder = "Enter last name", @required = "required" } })
+        </div>
+    </div>
+
+    <div class="mb-3">
+        @Html.LabelFor(e => e.Email, new { @class = "form-label" })
+        @Html.EditorFor(e => e.Email, new { htmlAttributes = new { @type = "email", @class = "form-control",
+            @placeholder = "Enter email", @required = "required" } })
+    </div>
+
+    <div class="mb-3">
+        @Html.LabelFor(e => e.MobileNo, new { @class = "form-label" })
+        @Html.EditorFor(e => e.MobileNo, new { htmlAttributes = new { @type = "text", @class = "form-control",
+            @placeholder = "Enter mobile no.", @required = "required" } })
+    </div>
+    <div class="mb-3">
+        @Html.LabelFor(e => e.UserName, new { @class = "form-label" })
+        @Html.EditorFor(e => e.UserName, new { htmlAttributes = new { @type = "text", @class = "form-control",
+            @placeholder = "Enter username", @required = "required" } })
+    </div>
+
+    <div class="mb-3">
+        @Html.LabelFor(e => e.Password, new { @class = "form-label" })
+        <div class="input-group auth-pass-inputgroup">
+            @Html.EditorFor(e => e.Password, new { htmlAttributes = new { @type = "password", @class = "form-control",
+                @placeholder = "Enter password", @required = "required", @aria_label = "Password", @aria_describedby = "password-addon" } })
+            <button class="btn btn-light " type="button" id="password-addon"><i class="mdi mdi-eye-outline"></i></button>
+        </div>
+    </div>
+
+    <div class="mt-4 d-grid">
+        <button class="btn btn-primary waves-effect waves-light" type="submit">Register</button>
+    </div>
+
+    <div class="mt-4 text-center">
+        <p class="mb-0">By registering you agree to the EHealthCare <a href="#" class="text-primary">Terms of Use</a></p>
+    </div>
+}
+
+@section footer {
+    <p>Already have an account ? @Html.ActionLink("Login", "Login", "Home", new { }, new { @class = "fw-medium text-primary" }) </p>
+}

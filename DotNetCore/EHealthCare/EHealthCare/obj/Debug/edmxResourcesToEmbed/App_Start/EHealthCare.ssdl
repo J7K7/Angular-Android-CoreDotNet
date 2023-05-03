@@ -1,0 +1,314 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EHealthCareModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Appointment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="HospitalDoctorId" Type="int" Nullable="false" />
+    <Property Name="PatientId" Type="int" Nullable="false" />
+    <Property Name="AppointmentTime" Type="datetime" Nullable="false" />
+    <Property Name="Status" Type="tinyint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="City">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="64" Nullable="false" />
+    <Property Name="StateId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Country">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="64" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DoctorSchedule">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="HospitalDoctorId" Type="int" Nullable="false" />
+    <Property Name="ScheduleDate" Type="datetime" Nullable="false" />
+    <Property Name="MorningStart" Type="time" Precision="7" />
+    <Property Name="MorningEnd" Type="time" Precision="7" />
+    <Property Name="EveningStart" Type="time" Precision="7" />
+    <Property Name="EveningEnd" Type="time" Precision="7" />
+    <Property Name="IsEmergency" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DoctorSpecialization">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DoctorId" Type="int" Nullable="false" />
+    <Property Name="SpecializationId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="HospitalDoctor">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DoctorSpecializationId" Type="int" Nullable="false" />
+    <Property Name="HospitalId" Type="int" Nullable="false" />
+    <Property Name="Fees" Type="float" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Specialization">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="32" Nullable="false" />
+    <Property Name="Time" Type="tinyint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="State">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="64" Nullable="false" />
+    <Property Name="CountryId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserImages">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="64" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserName" Type="varchar" MaxLength="32" />
+    <Property Name="Password" Type="varchar" MaxLength="512" />
+    <Property Name="UserType" Type="tinyint" Nullable="false" />
+    <Property Name="FirstName" Type="varchar" MaxLength="32" Nullable="false" />
+    <Property Name="LastName" Type="varchar" MaxLength="32" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="128" Nullable="false" />
+    <Property Name="MobileNo" Type="varchar" MaxLength="16" />
+    <Property Name="Gender" Type="tinyint" />
+    <Property Name="IsGoogle" Type="bit" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UsersAddress">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="Building" Type="varchar" MaxLength="64" Nullable="false" />
+    <Property Name="Street" Type="varchar" MaxLength="32" />
+    <Property Name="CityId" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_City_State">
+    <End Role="State" Type="Self.State" Multiplicity="1" />
+    <End Role="City" Type="Self.City" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="State">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="City">
+        <PropertyRef Name="StateId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Doctor_Users">
+    <End Role="DoctorSpecialization" Type="Self.DoctorSpecialization" Multiplicity="1" />
+    <End Role="HospitalDoctor" Type="Self.HospitalDoctor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DoctorSpecialization">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="HospitalDoctor">
+        <PropertyRef Name="DoctorSpecializationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DoctorSpecialization_Specialization">
+    <End Role="Specialization" Type="Self.Specialization" Multiplicity="1" />
+    <End Role="DoctorSpecialization" Type="Self.DoctorSpecialization" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Specialization">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="DoctorSpecialization">
+        <PropertyRef Name="SpecializationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DoctorSpecialization_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="DoctorSpecialization" Type="Self.DoctorSpecialization" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="DoctorSpecialization">
+        <PropertyRef Name="DoctorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Hospital_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="HospitalDoctor" Type="Self.HospitalDoctor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="HospitalDoctor">
+        <PropertyRef Name="HospitalId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HospitalDoctor">
+    <End Role="HospitalDoctor" Type="Self.HospitalDoctor" Multiplicity="1" />
+    <End Role="DoctorSchedule" Type="Self.DoctorSchedule" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HospitalDoctor">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="DoctorSchedule">
+        <PropertyRef Name="HospitalDoctorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HospitalDoctor_Appointment">
+    <End Role="HospitalDoctor" Type="Self.HospitalDoctor" Multiplicity="1" />
+    <End Role="Appointment" Type="Self.Appointment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HospitalDoctor">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Appointment">
+        <PropertyRef Name="HospitalDoctorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Patient_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="Appointment" Type="Self.Appointment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Appointment">
+        <PropertyRef Name="PatientId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_State_Country">
+    <End Role="Country" Type="Self.Country" Multiplicity="1" />
+    <End Role="State" Type="Self.State" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="State">
+        <PropertyRef Name="CountryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserImages_User">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="UserImages" Type="Self.UserImages" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserImages">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UsersAddress_City">
+    <End Role="City" Type="Self.City" Multiplicity="1" />
+    <End Role="UsersAddress" Type="Self.UsersAddress" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="City">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UsersAddress">
+        <PropertyRef Name="CityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UsersAddress_User">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="UsersAddress" Type="Self.UsersAddress" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UsersAddress">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="EHealthCareModelStoreContainer">
+    <EntitySet Name="Appointment" EntityType="Self.Appointment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="City" EntityType="Self.City" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Country" EntityType="Self.Country" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DoctorSchedule" EntityType="Self.DoctorSchedule" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DoctorSpecialization" EntityType="Self.DoctorSpecialization" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HospitalDoctor" EntityType="Self.HospitalDoctor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Specialization" EntityType="Self.Specialization" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="State" EntityType="Self.State" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserImages" EntityType="Self.UserImages" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UsersAddress" EntityType="Self.UsersAddress" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_City_State" Association="Self.FK_City_State">
+      <End Role="State" EntitySet="State" />
+      <End Role="City" EntitySet="City" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Doctor_Users" Association="Self.FK_Doctor_Users">
+      <End Role="DoctorSpecialization" EntitySet="DoctorSpecialization" />
+      <End Role="HospitalDoctor" EntitySet="HospitalDoctor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DoctorSpecialization_Specialization" Association="Self.FK_DoctorSpecialization_Specialization">
+      <End Role="Specialization" EntitySet="Specialization" />
+      <End Role="DoctorSpecialization" EntitySet="DoctorSpecialization" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DoctorSpecialization_Users" Association="Self.FK_DoctorSpecialization_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="DoctorSpecialization" EntitySet="DoctorSpecialization" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Hospital_Users" Association="Self.FK_Hospital_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="HospitalDoctor" EntitySet="HospitalDoctor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HospitalDoctor" Association="Self.FK_HospitalDoctor">
+      <End Role="HospitalDoctor" EntitySet="HospitalDoctor" />
+      <End Role="DoctorSchedule" EntitySet="DoctorSchedule" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HospitalDoctor_Appointment" Association="Self.FK_HospitalDoctor_Appointment">
+      <End Role="HospitalDoctor" EntitySet="HospitalDoctor" />
+      <End Role="Appointment" EntitySet="Appointment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Patient_Users" Association="Self.FK_Patient_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Appointment" EntitySet="Appointment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_State_Country" Association="Self.FK_State_Country">
+      <End Role="Country" EntitySet="Country" />
+      <End Role="State" EntitySet="State" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserImages_User" Association="Self.FK_UserImages_User">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="UserImages" EntitySet="UserImages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UsersAddress_City" Association="Self.FK_UsersAddress_City">
+      <End Role="City" EntitySet="City" />
+      <End Role="UsersAddress" EntitySet="UsersAddress" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UsersAddress_User" Association="Self.FK_UsersAddress_User">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="UsersAddress" EntitySet="UsersAddress" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

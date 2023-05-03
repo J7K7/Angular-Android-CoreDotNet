@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HospitalDetailActivity">
+
+    <include
+        android:id="@+id/appbar"
+        layout="@layout/appbar_layout" />
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/vpHospitalDetailActivityHospitals"
+        android:layout_width="match_parent"
+        android:layout_height="125dp"
+        android:layout_marginTop="65dp"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/llHospitalDetailActivityBottomNavigation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/vpHospitalDetailActivityHospitals" />
+
+    <LinearLayout
+        android:id="@+id/llHospitalDetailActivityHospital"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:orientation="vertical"
+        android:padding="10dp"
+
+        app:layout_constraintBottom_toTopOf="@id/llHospitalDetailActivityHospitalContact"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/llHospitalDetailActivityBottomNavigation">
+
+        <TextView
+            android:id="@+id/tvHospitalDetailActivityName"
+            style="@style/mediumFontBold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/tvHospitalDetailActivityAddress"
+            style="@style/mediumFont"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_marginTop="5dp"
+            android:ellipsize="end"
+
+            android:maxLines="2" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llHospitalDetailActivityHospitalContact"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:orientation="vertical"
+        android:paddingHorizontal="10dp"
+
+        app:layout_constraintBottom_toTopOf="@id/rvHospitalDetailActivityDoctors"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/llHospitalDetailActivityHospital">
+
+        <LinearLayout
+            android:id="@+id/llHospitalDetailActivityEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_baseline_email_24"
+                app:tint="@color/customPrimary" />
+
+            <TextView
+                android:id="@+id/tvHospitalDetailActivityEmail"
+                style="@style/mediumFont"
+                android:paddingStart="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/teal_700" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llHospitalDetailActivityCall"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_baseline_call_24"
+                app:tint="@color/customPrimary" />
+
+            <TextView
+                android:id="@+id/tvHospitalDetailActivityMobile"
+                style="@style/smallFont"
+                android:paddingStart="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginTop="5dp"
+            android:background="@color/lightSilver" />
+
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvHospitalDetailActivityDoctors"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/llHospitalDetailActivityHospitalContact" />
+
+    <Button
+        android:id="@+id/btnHospitalDetailActivity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginBottom="25dp"
+        android:backgroundTint="@color/customPrimary"
+        android:text="@string/app_book_appoinment"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,50 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="row bg-title">
+        <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+            <h4 class="page-title">Dashboard</h4>
+        </div>
+        <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+            <ol class="breadcrumb">
+                <li class="active">Dashboard</li>
+            </ol>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <div class="white-box">
+                <h3 class="box-title"><i class="fa fa-plus-square-o text-success"></i> Hospitals </h3>
+                <div class="text-right">
+                    <span class="text-muted">Total Hospitals</span>
+                    <h1>@ViewBag.toatalHospital</h1>
+                </div>
+                <span class="text-success">@ViewBag.totalActiveHospital Active</span>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <div class="white-box">
+                <h3 class="box-title"><i class="fa fa-user-plus text-success"></i> Doctors </h3>
+                <div class="text-right">
+                    <span class="text-muted">Total Doctors</span>
+                    <h1>@ViewBag.totalDoctors</h1>
+                </div>
+                <span class="text-success">@ViewBag.totalActiveDoctors Active</span>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+            <div class="white-box">
+                <h3 class="box-title"><i class="fa fa-wheelchair-alt text-success"></i> Patients </h3>
+                <div class="text-right">
+                    <span class="text-muted">Total Patients</span>
+                    <h1>@ViewBag.totalPatients</h1>
+                </div>
+                <span class="text-success">&nbsp;</span>
+            </div>
+        </div>
+    </div>
+</div>

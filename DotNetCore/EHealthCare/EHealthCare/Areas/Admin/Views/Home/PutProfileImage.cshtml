@@ -1,0 +1,37 @@
+﻿
+@{
+    ViewBag.Title = "PutProfileImage";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="row bg-title">
+        <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+            <h4 class="page-title">Profile Image</h4>
+        </div>
+        <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+            <ol class="breadcrumb">
+                <li><a href="#">Profile</a></li>
+                <li class="active">Profile Image</li>
+            </ol>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="white-box">
+                <h3 class="box-title m-b-0">Profile Image</h3>
+                @using (Html.BeginForm("PutProfileImage", "Home", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+                {
+                    <div class="form-group">
+                        <label for="inputName" class="control-label">Profile Image</label>
+                        <input type="file" name="ProfileImage" class="form-control" id="inputName" required>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-success">Submit</button>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,190 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.example.ehealth"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="28"
+8-->H:\EHealth\app\src\main\AndroidManifest.xml
+9        android:targetSdkVersion="32" />
+9-->H:\EHealth\app\src\main\AndroidManifest.xml
+10
+11    <uses-permission android:name="android.permission.INTERNET" />
+11-->H:\EHealth\app\src\main\AndroidManifest.xml:6:5-67
+11-->H:\EHealth\app\src\main\AndroidManifest.xml:6:22-64
+12    <uses-permission android:name="android.permission.CALL_PHONE" />
+12-->H:\EHealth\app\src\main\AndroidManifest.xml:7:5-69
+12-->H:\EHealth\app\src\main\AndroidManifest.xml:7:22-66
+13
+14    <application
+14-->H:\EHealth\app\src\main\AndroidManifest.xml:9:5-60:19
+15        android:allowBackup="true"
+15-->H:\EHealth\app\src\main\AndroidManifest.xml:10:9-35
+16        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+16-->[androidx.core:core:1.7.0] C:\Users\HP\.gradle\caches\transforms-3\d8338c189490aee58604e111af57865f\transformed\core-1.7.0\AndroidManifest.xml:24:18-86
+17        android:debuggable="true"
+18        android:extractNativeLibs="false"
+19        android:fullBackupContent="@xml/backup_rules"
+19-->H:\EHealth\app\src\main\AndroidManifest.xml:11:9-54
+20        android:icon="@drawable/logo"
+20-->H:\EHealth\app\src\main\AndroidManifest.xml:12:9-38
+21        android:label="@string/app_name"
+21-->H:\EHealth\app\src\main\AndroidManifest.xml:13:9-41
+22        android:networkSecurityConfig="@xml/network_security_config"
+22-->H:\EHealth\app\src\main\AndroidManifest.xml:14:9-69
+23        android:roundIcon="@drawable/logo"
+23-->H:\EHealth\app\src\main\AndroidManifest.xml:15:9-43
+24        android:supportsRtl="true"
+24-->H:\EHealth\app\src\main\AndroidManifest.xml:16:9-35
+25        android:testOnly="true"
+26        android:theme="@style/Theme.Material3.DayNight.NoActionBar" >
+26-->H:\EHealth\app\src\main\AndroidManifest.xml:17:9-68
+27        <activity
+27-->H:\EHealth\app\src\main\AndroidManifest.xml:19:9-22:52
+28            android:name="com.example.ehealth.DoctorDetailActivity"
+28-->H:\EHealth\app\src\main\AndroidManifest.xml:20:13-49
+29            android:exported="false"
+29-->H:\EHealth\app\src\main\AndroidManifest.xml:21:13-37
+30            android:screenOrientation="portrait" />
+30-->H:\EHealth\app\src\main\AndroidManifest.xml:22:13-49
+31        <activity
+31-->H:\EHealth\app\src\main\AndroidManifest.xml:23:9-26:52
+32            android:name="com.example.ehealth.HospitalDetailActivity"
+32-->H:\EHealth\app\src\main\AndroidManifest.xml:24:13-51
+33            android:exported="false"
+33-->H:\EHealth\app\src\main\AndroidManifest.xml:25:13-37
+34            android:screenOrientation="portrait" />
+34-->H:\EHealth\app\src\main\AndroidManifest.xml:26:13-49
+35        <activity
+35-->H:\EHealth\app\src\main\AndroidManifest.xml:27:9-30:52
+36            android:name="com.example.ehealth.ProfileActivity"
+36-->H:\EHealth\app\src\main\AndroidManifest.xml:28:13-44
+37            android:exported="false"
+37-->H:\EHealth\app\src\main\AndroidManifest.xml:29:13-37
+38            android:screenOrientation="portrait" />
+38-->H:\EHealth\app\src\main\AndroidManifest.xml:30:13-49
+39        <activity
+39-->H:\EHealth\app\src\main\AndroidManifest.xml:31:9-34:52
+40            android:name="com.example.ehealth.DoctorActivity"
+40-->H:\EHealth\app\src\main\AndroidManifest.xml:32:13-43
+41            android:exported="false"
+41-->H:\EHealth\app\src\main\AndroidManifest.xml:33:13-37
+42            android:screenOrientation="portrait" />
+42-->H:\EHealth\app\src\main\AndroidManifest.xml:34:13-49
+43        <activity
+43-->H:\EHealth\app\src\main\AndroidManifest.xml:35:9-38:52
+44            android:name="com.example.ehealth.HospitalActivity"
+44-->H:\EHealth\app\src\main\AndroidManifest.xml:36:13-45
+45            android:exported="false"
+45-->H:\EHealth\app\src\main\AndroidManifest.xml:37:13-37
+46            android:screenOrientation="portrait" />
+46-->H:\EHealth\app\src\main\AndroidManifest.xml:38:13-49
+47        <activity
+47-->H:\EHealth\app\src\main\AndroidManifest.xml:39:9-42:52
+48            android:name="com.example.ehealth.DashboardActivity"
+48-->H:\EHealth\app\src\main\AndroidManifest.xml:40:13-46
+49            android:exported="false"
+49-->H:\EHealth\app\src\main\AndroidManifest.xml:41:13-37
+50            android:screenOrientation="portrait" />
+50-->H:\EHealth\app\src\main\AndroidManifest.xml:42:13-49
+51        <activity
+51-->H:\EHealth\app\src\main\AndroidManifest.xml:43:9-46:52
+52            android:name="com.example.ehealth.RegistrationActivity"
+52-->H:\EHealth\app\src\main\AndroidManifest.xml:44:13-49
+53            android:exported="false"
+53-->H:\EHealth\app\src\main\AndroidManifest.xml:45:13-37
+54            android:screenOrientation="portrait" />
+54-->H:\EHealth\app\src\main\AndroidManifest.xml:46:13-49
+55        <activity
+55-->H:\EHealth\app\src\main\AndroidManifest.xml:47:9-50:52
+56            android:name="com.example.ehealth.LoginActivity"
+56-->H:\EHealth\app\src\main\AndroidManifest.xml:48:13-42
+57            android:exported="false"
+57-->H:\EHealth\app\src\main\AndroidManifest.xml:49:13-37
+58            android:screenOrientation="portrait" />
+58-->H:\EHealth\app\src\main\AndroidManifest.xml:50:13-49
+59        <activity
+59-->H:\EHealth\app\src\main\AndroidManifest.xml:51:9-59:20
+60            android:name="com.example.ehealth.MainActivity"
+60-->H:\EHealth\app\src\main\AndroidManifest.xml:52:13-41
+61            android:exported="true"
+61-->H:\EHealth\app\src\main\AndroidManifest.xml:53:13-36
+62            android:screenOrientation="portrait" >
+62-->H:\EHealth\app\src\main\AndroidManifest.xml:54:13-49
+63            <intent-filter>
+63-->H:\EHealth\app\src\main\AndroidManifest.xml:55:13-58:29
+64                <action android:name="android.intent.action.MAIN" />
+64-->H:\EHealth\app\src\main\AndroidManifest.xml:56:17-69
+64-->H:\EHealth\app\src\main\AndroidManifest.xml:56:25-66
+65
+66                <category android:name="android.intent.category.LAUNCHER" />
+66-->H:\EHealth\app\src\main\AndroidManifest.xml:57:17-77
+66-->H:\EHealth\app\src\main\AndroidManifest.xml:57:27-74
+67            </intent-filter>
+68        </activity>
+69        <activity
+69-->[com.google.android.gms:play-services-auth:20.2.0] C:\Users\HP\.gradle\caches\transforms-3\00485c9fc4c7979a4e63a2371e1e7d45\transformed\play-services-auth-20.2.0\AndroidManifest.xml:23:9-27:75
+70            android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity"
+70-->[com.google.android.gms:play-services-auth:20.2.0] C:\Users\HP\.gradle\caches\transforms-3\00485c9fc4c7979a4e63a2371e1e7d45\transformed\play-services-auth-20.2.0\AndroidManifest.xml:24:13-93
+71            android:excludeFromRecents="true"
+71-->[com.google.android.gms:play-services-auth:20.2.0] C:\Users\HP\.gradle\caches\transforms-3\00485c9fc4c7979a4e63a2371e1e7d45\transformed\play-services-auth-20.2.0\AndroidManifest.xml:25:13-46
+72            android:exported="false"
+72-->[com.google.android.gms:play-services-auth:20.2.0] C:\Users\HP\.gradle\caches\transforms-3\00485c9fc4c7979a4e63a2371e1e7d45\transformed\play-services-auth-20.2.0\AndroidManifest.xml:26:13-37
+73            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+73-->[com.google.android.gms:play-services-auth:20.2.0] C:\Users\HP\.gradle\caches\transforms-3\00485c9fc4c7979a4e63a2371e1e7d45\transformed\play-services-auth-20.2.0\AndroidManifest.xml:27:13-72
+74        <!--
+75            Service handling Google Sign-In user revocation. For apps that do not integrate with
+76            Google Sign-In, this service will never be started.
+77        -->
+78        <service
+78-->[com.google.android.gms:play-services-auth:20.2.0] C:\Users\HP\.gradle\caches\transforms-3\00485c9fc4c7979a4e63a2371e1e7d45\transformed\play-services-auth-20.2.0\AndroidManifest.xml:33:9-37:51
+79            android:name="com.google.android.gms.auth.api.signin.RevocationBoundService"
+79-->[com.google.android.gms:play-services-auth:20.2.0] C:\Users\HP\.gradle\caches\transforms-3\00485c9fc4c7979a4e63a2371e1e7d45\transformed\play-services-auth-20.2.0\AndroidManifest.xml:34:13-89
+80            android:exported="true"
+80-->[com.google.android.gms:play-services-auth:20.2.0] C:\Users\HP\.gradle\caches\transforms-3\00485c9fc4c7979a4e63a2371e1e7d45\transformed\play-services-auth-20.2.0\AndroidManifest.xml:35:13-36
+81            android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION"
+81-->[com.google.android.gms:play-services-auth:20.2.0] C:\Users\HP\.gradle\caches\transforms-3\00485c9fc4c7979a4e63a2371e1e7d45\transformed\play-services-auth-20.2.0\AndroidManifest.xml:36:13-107
+82            android:visibleToInstantApps="true" />
+82-->[com.google.android.gms:play-services-auth:20.2.0] C:\Users\HP\.gradle\caches\transforms-3\00485c9fc4c7979a4e63a2371e1e7d45\transformed\play-services-auth-20.2.0\AndroidManifest.xml:37:13-48
+83
+84        <activity
+84-->[com.google.android.gms:play-services-base:18.0.1] C:\Users\HP\.gradle\caches\transforms-3\554e56b7ca3c23393183273258feb399\transformed\play-services-base-18.0.1\AndroidManifest.xml:20:9-22:45
+85            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+85-->[com.google.android.gms:play-services-base:18.0.1] C:\Users\HP\.gradle\caches\transforms-3\554e56b7ca3c23393183273258feb399\transformed\play-services-base-18.0.1\AndroidManifest.xml:20:19-85
+86            android:exported="false"
+86-->[com.google.android.gms:play-services-base:18.0.1] C:\Users\HP\.gradle\caches\transforms-3\554e56b7ca3c23393183273258feb399\transformed\play-services-base-18.0.1\AndroidManifest.xml:22:19-43
+87            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+87-->[com.google.android.gms:play-services-base:18.0.1] C:\Users\HP\.gradle\caches\transforms-3\554e56b7ca3c23393183273258feb399\transformed\play-services-base-18.0.1\AndroidManifest.xml:21:19-78
+88
+89        <meta-data
+89-->[com.google.android.gms:play-services-basement:18.0.0] C:\Users\HP\.gradle\caches\transforms-3\f4edb30f12a4233ffb8ce3032d6469ff\transformed\play-services-basement-18.0.0\AndroidManifest.xml:21:9-23:69
+90            android:name="com.google.android.gms.version"
+90-->[com.google.android.gms:play-services-basement:18.0.0] C:\Users\HP\.gradle\caches\transforms-3\f4edb30f12a4233ffb8ce3032d6469ff\transformed\play-services-basement-18.0.0\AndroidManifest.xml:22:13-58
+91            android:value="@integer/google_play_services_version" />
+91-->[com.google.android.gms:play-services-basement:18.0.0] C:\Users\HP\.gradle\caches\transforms-3\f4edb30f12a4233ffb8ce3032d6469ff\transformed\play-services-basement-18.0.0\AndroidManifest.xml:23:13-66
+92
+93        <provider
+93-->[androidx.emoji2:emoji2:1.0.0] C:\Users\HP\.gradle\caches\transforms-3\db233f3ba8947fb0f91cd701b83dfe6a\transformed\emoji2-1.0.0\AndroidManifest.xml:26:9-34:20
+94            android:name="androidx.startup.InitializationProvider"
+94-->[androidx.emoji2:emoji2:1.0.0] C:\Users\HP\.gradle\caches\transforms-3\db233f3ba8947fb0f91cd701b83dfe6a\transformed\emoji2-1.0.0\AndroidManifest.xml:27:13-67
+95            android:authorities="com.example.ehealth.androidx-startup"
+95-->[androidx.emoji2:emoji2:1.0.0] C:\Users\HP\.gradle\caches\transforms-3\db233f3ba8947fb0f91cd701b83dfe6a\transformed\emoji2-1.0.0\AndroidManifest.xml:28:13-68
+96            android:exported="false" >
+96-->[androidx.emoji2:emoji2:1.0.0] C:\Users\HP\.gradle\caches\transforms-3\db233f3ba8947fb0f91cd701b83dfe6a\transformed\emoji2-1.0.0\AndroidManifest.xml:29:13-37
+97            <meta-data
+97-->[androidx.emoji2:emoji2:1.0.0] C:\Users\HP\.gradle\caches\transforms-3\db233f3ba8947fb0f91cd701b83dfe6a\transformed\emoji2-1.0.0\AndroidManifest.xml:31:13-33:52
+98                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+98-->[androidx.emoji2:emoji2:1.0.0] C:\Users\HP\.gradle\caches\transforms-3\db233f3ba8947fb0f91cd701b83dfe6a\transformed\emoji2-1.0.0\AndroidManifest.xml:32:17-75
+99                android:value="androidx.startup" />
+99-->[androidx.emoji2:emoji2:1.0.0] C:\Users\HP\.gradle\caches\transforms-3\db233f3ba8947fb0f91cd701b83dfe6a\transformed\emoji2-1.0.0\AndroidManifest.xml:33:17-49
+100            <meta-data
+100-->[androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\HP\.gradle\caches\transforms-3\45759b04922bc547a81513b82a38ba1e\transformed\lifecycle-process-2.4.0\AndroidManifest.xml:31:13-33:52
+101                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+101-->[androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\HP\.gradle\caches\transforms-3\45759b04922bc547a81513b82a38ba1e\transformed\lifecycle-process-2.4.0\AndroidManifest.xml:32:17-78
+102                android:value="androidx.startup" />
+102-->[androidx.lifecycle:lifecycle-process:2.4.0] C:\Users\HP\.gradle\caches\transforms-3\45759b04922bc547a81513b82a38ba1e\transformed\lifecycle-process-2.4.0\AndroidManifest.xml:33:17-49
+103        </provider>
+104    </application>
+105
+106</manifest>

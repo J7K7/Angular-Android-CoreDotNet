@@ -1,0 +1,254 @@
+<div class="page-wrapper">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Profile</h4>
+                        <div class="row">
+                            <div class="text-center">
+                                <img [src]="userImage"  class="img-fluid img-circle img-sm" style="max-width:60%;" alt="user" />
+                            </div>
+                            <div class="col-12 text-center m-t-10">
+                                <h4>{{user.FirstName}} {{user.LastName}}</h4>
+                            </div>
+                            <div class="col-12 text-center">
+                                <h4>{{user.Email}}</h4>
+                            </div>
+                            <div class="col-12 text-center">
+                                <h4>{{user.MobileNo}}</h4>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <a href="#" data-toggle="modal" data-target="#Item" data-whatever="@mdo" class="link-primary" style="font-size:small;">Update Profile</a>
+                            </div>
+                            <div class="col">
+                                <a href="#" data-toggle="modal" data-target="#Item2" data-whatever="@mdo" class="link-primary" style="font-size:small;">Change Password</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-8">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Address</h4>
+                        <form class="form-horizontal p-t-20" ngNativeValidate (ngSubmit)="onSubmit()">
+                            <div class="form-group row">
+                                <label for="exampleInputuname3" class="col-sm-3 control-label">Building</label>
+                                <div class="col-sm-9">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" [ngModelOptions]="{standalone: true}" [(ngModel)]="building" placeholder="" required="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="exampleInputEmail3" class="col-sm-3 control-label">Street</label>
+                                <div class="col-sm-9">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" [ngModelOptions]="{standalone: true}" [(ngModel)]="street" required="" placeholder="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="control-label col-md-3">Country</label>
+                                <div class="col-md-9">
+                                    <select class="form-control custom-select" (change)="getState($event)" [ngModelOptions]="{standalone: true}" [(ngModel)]="country" required="" data-placeholder="Choose a Category" tabindex="1">
+                                        <option *ngFor="let c of countries" [value]="c.Id" >{{c.Name}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="control-label col-md-3">State</label>
+                                <div class="col-md-9">
+                                    <select class="form-control custom-select" (change)="getCity($event)" [ngModelOptions]="{standalone: true}" [(ngModel)]="state" required="" data-placeholder="Choose a Category" tabindex="1">
+                                        <option *ngFor="let s of states" [value]="s.Id" >{{s.Name}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="control-label col-md-3">City</label>
+                                <div class="col-md-9">
+                                    <select class="form-control custom-select" [ngModelOptions]="{standalone: true}" [(ngModel)]="city" required="" data-placeholder="Choose a Category" tabindex="1">
+                                        <option *ngFor="let city of cities" [value]="city.Id" >{{city.Name}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group row m-b-0">
+                                <div class="offset-sm-3 col-sm-9">
+                                    <button type="submit" class="btn btn-success waves-effect waves-light">Update</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Update profile image</h4>
+                        <form class="form" ngNativeValidate (ngSubmit)="onUpdateProfile()">
+                            <div class="form-group" >
+                                <label for="exampleInputuname">Profile Image</label>
+                                <div class="input-group">
+                                    <div class="input-group-addon"><i class="ti-image"></i></div>
+                                    <input type="file" [ngModelOptions]="{standalone: true}" [(ngModel)]="filename" class="form-control" (change)="onChange($event)" id="exampleInputuname" placeholder="" required="">
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-success waves-effect waves-light m-r-10">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Specialization</h4>
+                        <a href="#" data-toggle="modal" data-target="#Item3" data-whatever="@mdo" class="link-primary" style="font-size:small;">Add Specialization</a>
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Sr. No.</th>
+                                        <th>Name</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let userSpecialization of userSpecializations">
+                                        <td>{{userSpecialization.Id}}</td>
+                                        <td>{{userSpecialization.specialization?.Name}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="Item" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h3 class="font-weight-bold m-t-10">EHealth Care</h3>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <form class="form-horizontal form-material" ngNativeValidate id="userform" (ngSubmit)="onUserUpdate()">
+                <h3 class="box-title m-t-0 m-b-0">Update Profile</h3>
+                <div class="form-group m-t-20">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <input class="form-control" type="text" required="" [ngModelOptions]="{standalone: true}" placeholder="First Name" [(ngModel)]="firstName">
+                        </div>
+                        <div class="col-sm-6">
+                            <input class="form-control" type="text" required="" [ngModelOptions]="{standalone: true}" placeholder="Last Name" [(ngModel)]="lastName">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group m-b-0">
+                    <div class="form-check">
+                        <label class="control-label">Gender :</label>
+                        <label class="custom-control custom-radio m-l-10">
+                            <input id="radio1" name="radio" type="radio" value='1' [checked]="true" class="custom-control-input form-check-input" [(ngModel)]="gender">
+                            <span class="custom-control-indicator"></span>
+                            <span class="custom-control-description">Male</span>
+                        </label>
+                        <label class="custom-control custom-radio">
+                            <input id="radio2" name="radio" type="radio" value='2' class="custom-control-input form-check-input" [(ngModel)]="gender">
+                            <span class="custom-control-indicator"></span>
+                            <span class="custom-control-description">Female</span>
+                        </label>
+                        <label class="custom-control custom-radio">
+                            <input id="radio3" name="radio" type="radio" value='0' class="custom-control-input form-check-input" [(ngModel)]="gender">
+                            <span class="custom-control-indicator"></span>
+                            <span class="custom-control-description">Other</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-xs-12">
+                        <input class="form-control" type="text" required="" [ngModelOptions]="{standalone: true}" placeholder="Email" [(ngModel)]="email">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-xs-12">
+                        <input class="form-control" type="text" (keypress)="numberOnly($event)" maxlength="12" minlength="10" required="" [ngModelOptions]="{standalone: true}" placeholder="Mobile No." [(ngModel)]="mobile">
+                    </div>
+                </div>
+                <div class="form-group text-right col">
+                    <button type="button" class="btn btn-secondary m-r-10" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Update</button>
+                </div>
+            </form>
+        </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="Item2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h3 class="font-weight-bold m-t-10">EHealth Care</h3>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <form ngNativeValidate id="loginform" (ngSubmit)="onChangePassword()">
+                <h3 class="box-title m-t-0 m-b-0">Change Password</h3>
+                <div class="form-group">
+                    <label for="recipient-name" class="col-form-label">Password:</label>
+                    <input type="password" class="form-control" placeholder="Enter Password" required="" [ngModelOptions]="{standalone: true}" [(ngModel)]="password" />
+                </div>
+                <div class="form-group">
+                    <label for="message-text" class="col-form-label">New Password:</label>
+                    <input type="password" class="form-control" placeholder="Enter New-Password" required="" [ngModelOptions]="{standalone: true}" [(ngModel)]="rePassword" />
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="submit" class="btn btn-primary">Change Password</button>
+                </div>
+            </form>
+        </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="Item3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h3 class="font-weight-bold m-t-10">EHealth Care</h3>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <form ngNativeValidate id="loginform" (ngSubmit)="onUpdateSpecialization()">
+                <h3 class="box-title m-t-0 m-b-10">Add Specialization</h3>
+                <div class="form-group row m-t-20">
+                    <label class="control-label col-md-3">Specialization: </label>
+                    <div class="col-md-9">
+                        <select class="form-control custom-select" [ngModelOptions]="{standalone: true}" [(ngModel)]="selectedSpecialization" required="" data-placeholder="Choose a Specialization" tabindex="1">
+                            <option *ngFor="let c of specialization" [value]="c.Id" >{{c.Name}}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="submit" class="btn btn-success">Add</button>
+                </div>
+            </form>
+        </div>
+        </div>
+    </div>
+</div>

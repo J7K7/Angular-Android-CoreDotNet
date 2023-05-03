@@ -1,0 +1,60 @@
+<div id="main-wrapper">
+    <header class="topbar">
+      <nav class="navbar top-navbar navbar-expand-md navbar-light">
+          <div class="navbar-header">
+              <a class="navbar-brand" href="index.html">
+                  <b>
+                      <img src="/assets/images/logo-icon.png" alt="homepage" class="dark-logo" />
+                      <img src="/assets/images/logo-light-icon.png" alt="homepage" class="light-logo" />
+                  </b>
+                  <span class="font-weight-bold">EHealth Care</span> 
+                </a>
+          </div>
+          <div class="navbar-collapse">
+              <ul class="navbar-nav mr-auto">
+                  <li class="nav-item"> <a class="nav-link nav-toggler hidden-md-up waves-effect waves-dark" href="javascript:void(0)"><i class="ti-menu"></i></a> </li>
+                  <li class="nav-item"> <a class="nav-link sidebartoggler hidden-sm-down waves-effect waves-dark" href="javascript:void(0)"><i class="ti-menu"></i></a> </li>
+              </ul>
+              <ul class="navbar-nav my-lg-0">
+                  <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle waves-effect waves-dark" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img [src]="user.userImage"  alt="user" class="profile-pic" /></a>
+                      <div class="dropdown-menu dropdown-menu-right animated flipInY">
+                          <ul class="dropdown-user">
+                              <li>
+                                  <div class="dw-user-box">
+                                      <div class="text-center"><img class="img-circle" style="width:100px;height:100px;" [src]="user.userImage" alt="user"></div>
+                                      <div class="text-uppercase text-center m-t-10">
+                                          {{user.UserName}}
+                                      </div>
+                                  </div>
+                              </li>
+                              <li role="separator" class="divider"></li>
+                              <li><a routerLink="/profile"><i class="fa fa-id-card"></i> Profile</a></li>
+                              <li><a href="#" (click)="(onClick())"><i class="fa fa-power-off"></i> Logout</a></li>
+                          </ul>
+                      </div>
+                  </li>
+              </ul>
+          </div>
+      </nav>
+    </header>
+
+    <aside class="left-sidebar">
+      <div class="scroll-sidebar">
+          <nav class="sidebar-nav">
+              <ul id="sidebarnav">
+                  <li class="user-profile"> <a class="waves-effect waves-dark" routerLink="/profile" aria-expanded="false"><img [src]="user.userImage" alt="user" /><span class="hide-menu text-light m-l-5 font-weight-bold">{{user.FirstName}} {{user.LastName}} </span></a></li>
+                  <li class="nav-devider"></li>
+                  <li class="nav-small-cap">PERSONAL</li>
+                  <li> <a class="waves-effect waves-dark" routerLink="/dashboard" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Dashboard </span></a>
+                  </li>
+                  <li> <a class="waves-effect waves-dark" routerLink="/hospital" aria-expanded="false"><i class="mdi mdi-account-plus"></i><span class="hide-menu">Hospital </span></a>
+                  </li>
+                  <li> <a class="waves-effect waves-dark" href="#" (click)="(onClick())" aria-expanded="false"><i class="icon-logout"></i><span class="hide-menu">Log Out </span></a>
+                  </li>
+              </ul>
+          </nav>
+      </div>
+    </aside>
+    <router-outlet name="r2"></router-outlet>
+  </div>

@@ -1,0 +1,44 @@
+﻿@model EHealthCare.App_Start.User
+
+@{
+    ViewBag.Title = "Login";
+    TempData["UserTitle"] = "Welcome Back !";
+    Layout = "~/Areas/Hospital/Views/Shared/_UserLayout.cshtml";
+}
+
+@using (Html.BeginForm("Login", "Home", FormMethod.Post, new { @class = "form-horizontal" }))
+{
+    <div class="mb-3">
+        @Html.LabelFor(e => e.UserName, new { @class= "form-label" })
+        @Html.EditorFor(e => e.UserName, new { htmlAttributes = new { @type = "text", @class = "form-control",
+            @placeholder = "Enter username", @required = "required" } })
+    </div>
+
+    <div class="mb-3">
+        @Html.LabelFor(e => e.Password, new { @class= "form-label" })
+        <div class="input-group auth-pass-inputgroup">
+            @Html.EditorFor(e => e.Password, new { htmlAttributes = new { @type = "password", @class = "form-control", 
+                @placeholder = "Enter password", @required = "required", @aria_label = "Password", @aria_describedby = "password-addon" } })
+            <button class="btn btn-light " type="button" id="password-addon"><i class="mdi mdi-eye-outline"></i></button>
+        </div>
+    </div>
+
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="remember-check">
+        <label class="form-check-label" for="remember-check">
+            Remember me
+        </label>
+    </div>
+
+    <div class="mt-3 d-grid">
+        <button class="btn btn-primary waves-effect waves-light" type="submit">Log In</button>
+    </div>
+
+    <div class="mt-4 text-center">
+        <a href="auth-recoverpw.html" class="text-muted"><i class="mdi mdi-lock me-1"></i> Forgot your password?</a>
+    </div>
+}
+
+@section footer {
+    <p>Don't have an account ? @Html.ActionLink("Signup now", "Register", "Home", new { },  new { @class= "fw-medium text-primary" }) </p>
+}

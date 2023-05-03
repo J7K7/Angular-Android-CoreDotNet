@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegistrationActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@drawable/shape_bottom_radius"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent=".10"
+        app:layout_constraintStart_toStartOf="parent"
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="Registration"
+            android:textColor="@color/white"
+            android:textSize="24dp"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+
+        android:layout_margin="25dp"
+
+        app:cardCornerRadius="10dp"
+        app:cardElevation="10dp"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent=".80"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="15dp">
+
+<!--            <androidx.cardview.widget.CardView-->
+<!--                android:id="@+id/cvRegistrationActivityLogo"-->
+<!--                android:layout_width="125dp"-->
+<!--                android:layout_height="125dp"-->
+
+<!--                app:cardCornerRadius="100dp"-->
+
+<!--                app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toTopOf="parent"-->
+
+<!--                app:layout_constraintVertical_bias="0">-->
+
+<!--                <ImageView-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:layout_margin="25dp"-->
+
+<!--                    android:src="@drawable/logo" />-->
+
+<!--            </androidx.cardview.widget.CardView>-->
+
+            <EditText
+                android:id="@+id/etRegistrationActivityFirstName"
+                android:layout_width="125dp"
+                android:layout_height="wrap_content"
+
+                android:background="@drawable/style_edittext"
+                android:hint="First Name"
+
+                app:layout_constraintBottom_toTopOf="@id/etRegistrationActivityEmail"
+                app:layout_constraintEnd_toStartOf="@id/etRegistrationActivityLastName"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/etRegistrationActivityLastName"
+                android:layout_width="125dp"
+                android:layout_height="wrap_content"
+
+                android:background="@drawable/style_edittext"
+                android:hint="Last Name"
+
+                app:layout_constraintBottom_toBottomOf="@id/etRegistrationActivityFirstName"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/etRegistrationActivityFirstName"
+                app:layout_constraintTop_toTopOf="@id/etRegistrationActivityFirstName" />
+
+            <EditText
+                android:id="@+id/etRegistrationActivityEmail"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+
+                android:background="@drawable/style_edittext"
+                android:hint="Email Id"
+
+                app:layout_constraintBottom_toTopOf="@id/etRegistrationActivityMobile"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/etRegistrationActivityFirstName" />
+
+            <EditText
+                android:id="@+id/etRegistrationActivityMobile"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+
+                android:background="@drawable/style_edittext"
+                android:hint="Mobile No."
+
+                app:layout_constraintBottom_toTopOf="@id/etRegistrationActivityUsername"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/etRegistrationActivityEmail" />
+
+            <EditText
+                android:id="@+id/etRegistrationActivityUsername"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+
+                android:background="@drawable/style_edittext"
+                android:hint="Username"
+
+                app:layout_constraintBottom_toTopOf="@id/etRegistrationActivityPassword"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/etRegistrationActivityMobile" />
+
+            <EditText
+                android:id="@+id/etRegistrationActivityPassword"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+
+                android:background="@drawable/style_edittext"
+                android:hint="Password"
+                android:inputType="textPassword"
+
+                app:layout_constraintBottom_toTopOf="@id/rgRegistrationActivityGender"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/etRegistrationActivityUsername" />
+
+            <RadioGroup
+                android:id="@+id/rgRegistrationActivityGender"
+                android:layout_width="280dp"
+                android:layout_height="wrap_content"
+
+                android:orientation="horizontal"
+                android:checkedButton="@id/rbRegistrationActivityMale"
+
+                app:layout_constraintBottom_toTopOf="@id/btnRegistrationActivitySignUp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/etRegistrationActivityPassword">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Gender : "
+                    android:textColor="@color/black" />
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/customPrimary"
+                    android:id="@+id/rbRegistrationActivityMale"
+                    android:text="Male" />
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/customPrimary"
+                    android:id="@+id/rbRegistrationActivityFemale"
+                    android:text="Female" />
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/customPrimary"
+                    android:id="@+id/rbRegistrationActivityOther"
+                    android:text="Other" />
+            </RadioGroup>
+
+            <Button
+                android:id="@+id/btnRegistrationActivitySignUp"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+
+                android:backgroundTint="@color/customPrimary"
+                android:text="Sign Up"
+
+                app:layout_constraintBottom_toTopOf="@id/btnRegistrationActivitySignIn"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/rgRegistrationActivityGender" />
+
+            <Button
+                android:id="@+id/btnRegistrationActivitySignIn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:backgroundTint="@color/white"
+                android:text="Sign In"
+                android:textColor="@color/customPrimary"
+
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btnRegistrationActivitySignUp" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

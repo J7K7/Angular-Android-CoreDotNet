@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    @{ Html.RenderPartial("_StyleSheet"); }
+    @RenderSection("style", required: false)
+    @RenderSection("stylesheet", required: false)
+</head>
+
+<body>
+    <div class="preloader">
+        <div class="loader">
+            <div class="loader__figure"></div>
+            <p class="loader__label">EHealth Care</p>
+        </div>
+    </div>
+    <div id="wrapper">
+        <!-- Navigation -->
+        <nav class="navbar navbar-default navbar-static-top m-b-0">
+            <div class="navbar-header">
+                <a class="navbar-toggle hidden-sm hidden-md hidden-lg " href="~/Areas/Admin/Content/javascript:void(0)" data-toggle="collapse" data-target=".navbar-collapse"><i class="ti-menu"></i></a>
+                <div class="top-left-part"><a class="logo tex" href="~/Areas/Admin/Content/index.html"><center><span style="color: red; padding-right:70px"><b>EHealthCare</b></span></center></a></div>
+                <ul class="nav navbar-top-links navbar-left hidden-xs">
+                    <li><a href="javascript:void(0)" class="open-close hidden-xs waves-effect waves-light"><i class="icon-arrow-left-circle ti-menu"></i></a></li>
+                </ul>
+            </div>
+            <!-- /.navbar-header -->
+            <!-- /.navbar-top-links -->
+            <!-- /.navbar-static-side -->
+        </nav>
+        <!-- Left navbar-header -->
+        <div class="navbar-default sidebar" role="navigation" style="position : fixed;">
+            <div class="sidebar-nav navbar-collapse slimscrollsidebar">
+                <div class="user-profile">
+                    <div class="dropdown user-pro-body">
+                        <div><img src="~/Content/Images/@Session["ProfileImage"]" alt="user-img" style="height:100px;width:100px;" class="img-circle"></div>
+                        <a href="/Admin/Home/Profile">@Session["FirstName"] @Session["LastName"]</a>
+                    </div>
+                </div>
+                <ul class="nav" id="side-menu">
+                    <li class="nav-small-cap m-t-10">--- Main Menu</li>
+                    <li> <a href="/Admin/Home" class="waves-effect"><i data-icon="v" class="linea-icon linea-basic fa-fw" aria-hidden="true"></i> <span class="hide-menu">Dashboard</span></a> </li>
+                    <li> <a href="/Admin/Hospital" class="waves-effect"><i data-icon="P" class="fa fa-plus-square-o fa-fw" aria-hidden="true"></i> <span class="hide-menu">Hospitals</span></a> </li>
+                    <li> <a href="/Admin/Doctor" class="waves-effect"><i data-icon="P" class="fa fa-user-plus fa-fw" aria-hidden="true"></i> <span class="hide-menu">Doctors</span></a> </li>
+                    <li> <a href="/Admin/Patient" class="waves-effect"><i data-icon="P" class="fa fa-wheelchair-alt fa-fw" aria-hidden="true"></i> <span class="hide-menu">Patients</span></a> </li>
+                    <li><a href="/Admin/Home/Logout" class="waves-effect"><i class="icon-logout fa-fw"></i> <span class="hide-menu">Log out</span></a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- Left navbar-header end -->
+        <!-- Page Content -->
+        <div id="page-wrapper">
+            @RenderBody()
+            <footer class="footer text-center"> @DateTime.Now.Year.ToString() &copy; EHealthCare </footer>
+        </div>
+        <!-- /#page-wrapper -->
+    </div>
+    <!-- /#wrapper -->
+
+    @{ Html.RenderPartial("_Script"); }
+    @RenderSection("scripts", required: false)
+</body>
+
+<!-- Mirrored from eliteadmin.themedesigner.in/demos/eliteadmin-ecommerce/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 22 Dec 2017 11:00:25 GMT -->
+</html>

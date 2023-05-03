@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="8542eff8e9004ba08522f74b8e48ec32" Name="Diagram1" ZoomLevel="95">
+        <EntityTypeShape EntityType="EHealthCareModel.Appointment" Width="1.5" PointX="2.5" PointY="3.5" />
+        <EntityTypeShape EntityType="EHealthCareModel.City" Width="1.5" PointX="0.5" PointY="4.625" />
+        <EntityTypeShape EntityType="EHealthCareModel.Country" Width="1.5" PointX="0.5" PointY="0.5" />
+        <EntityTypeShape EntityType="EHealthCareModel.DoctorSchedule" Width="1.5" PointX="2.5" PointY="0.5" />
+        <EntityTypeShape EntityType="EHealthCareModel.DoctorSpecialization" Width="1.5" PointX="7.375" PointY="0.75" />
+        <EntityTypeShape EntityType="EHealthCareModel.HospitalDoctor" Width="1.5" PointX="5" PointY="0.5" />
+        <EntityTypeShape EntityType="EHealthCareModel.Specialization" Width="1.5" PointX="7.5" PointY="3.375" />
+        <EntityTypeShape EntityType="EHealthCareModel.State" Width="1.5" PointX="0.5" PointY="2.375" />
+        <EntityTypeShape EntityType="EHealthCareModel.UserImage" Width="1.5" PointX="7.5" PointY="5.375" />
+        <EntityTypeShape EntityType="EHealthCareModel.User" Width="1.5" PointX="5" PointY="3.625" />
+        <EntityTypeShape EntityType="EHealthCareModel.UsersAddress" Width="1.5" PointX="2.5" PointY="6.125" />
+        <AssociationConnector Association="EHealthCareModel.FK_HospitalDoctor_Appointment" ManuallyRouted="true" >
+          <ConnectorPoint PointX="5" PointY="3.2494921875" />
+          <ConnectorPoint PointX="4" PointY="4.261766367490889" />
+        </AssociationConnector>
+        <AssociationConnector Association="EHealthCareModel.FK_Patient_Users" />
+        <AssociationConnector Association="EHealthCareModel.FK_City_State" />
+        <AssociationConnector Association="EHealthCareModel.FK_UsersAddress_City" />
+        <AssociationConnector Association="EHealthCareModel.FK_State_Country" />
+        <AssociationConnector Association="EHealthCareModel.FK_HospitalDoctor" />
+        <AssociationConnector Association="EHealthCareModel.FK_Doctor_Users" />
+        <AssociationConnector Association="EHealthCareModel.FK_DoctorSpecialization_Specialization" />
+        <AssociationConnector Association="EHealthCareModel.FK_DoctorSpecialization_Users" ManuallyRouted="true" >
+          <ConnectorPoint PointX="6.5" PointY="6.0147062312962927" />
+          <ConnectorPoint PointX="7.375" PointY="2.6341461021493595" />
+        </AssociationConnector>
+        <AssociationConnector Association="EHealthCareModel.FK_Hospital_Users" />
+        <AssociationConnector Association="EHealthCareModel.FK_UserImages_User" />
+        <AssociationConnector Association="EHealthCareModel.FK_UsersAddress_User" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

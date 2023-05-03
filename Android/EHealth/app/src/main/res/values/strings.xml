@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">EHealth</string>
+    <string name="server_client_id">1014958012463-qhlf5l7kpcbm7kpl1po38ihues5gigus.apps.googleusercontent.com</string>
+    <string name="api_url">http://192.168.181.1:45456/</string>
+    <string name="app_dashboard">Dashboard</string>
+    <string name="app_doctor">Doctor</string>
+    <string name="app_hospital">Hospital</string>
+    <string name="app_book_appoinment">Book Appoinment</string>
+</resources>

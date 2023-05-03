@@ -1,0 +1,41 @@
+﻿@model IEnumerable<EHealthCare.App_Start.User>
+
+@{
+    ViewBag.Title = "Doctors";
+    ViewBag.Header = "Doctor List";
+    Layout = "~/Areas/Hospital/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("Index", "Doctor", FormMethod.Post))
+{
+    <div class="row">
+        <div class="col-md-3">
+            <select class="form-select" name="Specialization" onchange="$('#btnFilter').click();">
+                <option value="">Select Specialization</option>
+                @foreach (SelectListItem specialization in (List<SelectListItem>)ViewData["SpecializationItem"])
+                {
+                    <option value="@specialization.Value" selected="@specialization.Selected">@specialization.Text</option>
+                }
+            </select>
+        </div>
+
+        <div class="col-md-3">
+            <select class="form-select" name="Status" onchange="$('#btnFilter').click();">
+                <option value="">Select Status</option>
+                @foreach (SelectListItem status in (List<SelectListItem>)ViewData["StatusItem"])
+                {
+                    <option value="@status.Value" selected="@status.Selected">@status.Text</option>
+                }
+            </select>
+        </div>
+
+        <button type="submit" id="btnFilter" hidden>Filter</button>
+    </div>
+}
+
+<div class="row mt-3">
+    @foreach (EHealthCare.App_Start.User doctor in Model)
+    {
+        { Html.RenderAction("DoctorCard", "Home", new { user = doctor, IsLink = true, IsActiveSpecialization = ViewBag.Status }); }
+    }
+</div>

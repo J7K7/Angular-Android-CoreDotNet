@@ -1,0 +1,70 @@
+[
+    {
+        "merged": "com.example.ehealth.app-mergeDebugResources-28:/layout/appbar_layout.xml",
+        "source": "com.example.ehealth.app-main-31:/layout/appbar_layout.xml"
+    },
+    {
+        "merged": "com.example.ehealth.app-mergeDebugResources-28:/layout/card_doctor_specialization.xml",
+        "source": "com.example.ehealth.app-main-31:/layout/card_doctor_specialization.xml"
+    },
+    {
+        "merged": "com.example.ehealth.app-mergeDebugResources-28:/layout/activity_dashboard.xml",
+        "source": "com.example.ehealth.app-main-31:/layout/activity_dashboard.xml"
+    },
+    {
+        "merged": "com.example.ehealth.app-mergeDebugResources-28:/layout/activity_main.xml",
+        "source": "com.example.ehealth.app-main-31:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.example.ehealth.app-mergeDebugResources-28:/layout/activity_hospital_detail.xml",
+        "source": "com.example.ehealth.app-main-31:/layout/activity_hospital_detail.xml"
+    },
+    {
+        "merged": "com.example.ehealth.app-mergeDebugResources-28:/layout/card_dashboard.xml",
+        "source": "com.example.ehealth.app-main-31:/layout/card_dashboard.xml"
+    },
+    {
+        "merged": "com.example.ehealth.app-mergeDebugResources-28:/layout/activity_doctor.xml",
+        "source": "com.example.ehealth.app-main-31:/layout/activity_doctor.xml"
+    },
+    {
+        "merged": "com.example.ehealth.app-mergeDebugResources-28:/layout/activity_registration.xml",
+        "source": "com.example.ehealth.app-main-31:/layout/activity_registration.xml"
+    },
+    {
+        "merged": "com.example.ehealth.app-mergeDebugResources-28:/layout/slider_splash.xml",
+        "source": "com.example.ehealth.app-main-31:/layout/slider_splash.xml"
+    },
+    {
+        "merged": "com.example.ehealth.app-mergeDebugResources-28:/layout/activity_login.xml",
+        "source": "com.example.ehealth.app-main-31:/layout/activity_login.xml"
+    },
+    {
+        "merged": "com.example.ehealth.app-mergeDebugResources-28:/layout/activity_hospital.xml",
+        "source": "com.example.ehealth.app-main-31:/layout/activity_hospital.xml"
+    },
+    {
+        "merged": "com.example.ehealth.app-mergeDebugResources-28:/layout/slider_appointment.xml",
+        "source": "com.example.ehealth.app-main-31:/layout/slider_appointment.xml"
+    },
+    {
+        "merged": "com.example.ehealth.app-mergeDebugResources-28:/layout/activity_profile.xml",
+        "source": "com.example.ehealth.app-main-31:/layout/activity_profile.xml"
+    },
+    {
+        "merged": "com.example.ehealth.app-mergeDebugResources-28:/layout/card_doctor.xml",
+        "source": "com.example.ehealth.app-main-31:/layout/card_doctor.xml"
+    },
+    {
+        "merged": "com.example.ehealth.app-mergeDebugResources-28:/layout/slider_image.xml",
+        "source": "com.example.ehealth.app-main-31:/layout/slider_image.xml"
+    },
+    {
+        "merged": "com.example.ehealth.app-mergeDebugResources-28:/layout/activity_doctor_detail.xml",
+        "source": "com.example.ehealth.app-main-31:/layout/activity_doctor_detail.xml"
+    },
+    {
+        "merged": "com.example.ehealth.app-mergeDebugResources-28:/layout/card_hospital.xml",
+        "source": "com.example.ehealth.app-main-31:/layout/card_hospital.xml"
+    }
+]

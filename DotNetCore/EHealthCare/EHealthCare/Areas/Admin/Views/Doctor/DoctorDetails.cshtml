@@ -1,0 +1,105 @@
+﻿@model EHealthCare.App_Start.User
+
+@{
+    ViewBag.Title = "DoctorDetails";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="row bg-title">
+        <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+            <h4 class="page-title">Hospital Details</h4>
+        </div>
+        <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+            <ol class="breadcrumb">
+                <li><a href="#">Doctor</a></li>
+                <li class="active">Doctor Details</li>
+            </ol>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="white-box">
+                <div class="">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <div class="white-box text-center">
+                                <center>
+                                    <img src="~/Areas/Hospital/Content/images/healthcare.png" height="75" class="img-circle" />
+                                </center>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <h3 class="box-title m-t-40">Doctor Info</h3>
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <tbody>
+                                        <tr>
+                                            <td width="390">Doctor Name</td>
+                                            <td>
+                                                @Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.LastName)
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Gender</td>
+                                            @if (Model.Gender == 1)
+                                            {
+                                                <td>Male</td>
+                                            }
+                                            else if (Model.Gender == 2)
+                                            {
+                                                <td>Female</td>
+                                            }
+                                            else
+                                            {
+                                                <td>Other</td>
+                                            }
+                                        </tr>
+                                        <tr>
+                                            <td>Email</td>
+                                            <td> @Html.DisplayFor(model => model.Email) </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Mobile No</td>
+                                            <td> @Html.DisplayFor(model => model.MobileNo) </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Address</td>
+                                            <td>
+                                                @Html.DisplayFor(model => model.UsersAddresses.FirstOrDefault().Building),
+                                                @Html.DisplayFor(model => model.UsersAddresses.FirstOrDefault().Street),
+                                                @Html.DisplayFor(model => model.UsersAddresses.FirstOrDefault().City.Name),
+                                                @Html.DisplayFor(model => model.UsersAddresses.FirstOrDefault().City.State.Name),
+                                                @Html.DisplayFor(model => model.UsersAddresses.FirstOrDefault().City.State.Country.Name)
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Specialization</td>
+                                            <td>
+                                                @string.Join(", ", Model.DoctorSpecializations.Select(e => e.Specialization).ToList().Select(e => e.Name))
+                                            </td>
+                                        </tr>
+                                        @if (Model.IsActive == true)
+                                        {
+                                            <tr>
+                                                <td>Details</td>
+                                                <td>
+                                                    @Html.ActionLink("Hospitals", "DoctorByHospitals", "Doctor", new { id = Model.Id }, new { @class = "btn btn-primary waves-effect waves-light m-t-10" })
+                                                    @Html.ActionLink("Patients", "DoctorByPatients", "Doctor", new { id = Model.Id }, new { @class = "btn btn-success waves-effect waves-light m-t-10" })
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p>
+                @Html.ActionLink("Back to List", "Index", "Doctor")
+            </p>
+        </div>
+    </div>
+</div>
+

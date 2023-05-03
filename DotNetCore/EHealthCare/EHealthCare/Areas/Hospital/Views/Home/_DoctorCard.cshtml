@@ -1,0 +1,42 @@
+﻿@model (EHealthCare.App_Start.User, bool, List<EHealthCare.App_Start.Specialization>)
+
+<div class="col-xl-3 col-sm-6">
+    <div class="card text-center">
+        <div class="card-body">
+            @if (Model.Item1.UserImages.Count() > 0 && !string.IsNullOrEmpty(Model.Item1.UserImages.FirstOrDefault().Name))
+            {
+                <div class="mb-4">
+                    <img class="rounded-circle avatar-sm" src="assets/images/users/@Model.Item1.UserImages.FirstOrDefault().Name" alt="">
+                </div>
+            }
+            else
+            {
+                <div class="avatar-sm mx-auto mb-4">
+                    <span class="avatar-title rounded-circle bg-primary bg-soft text-primary font-size-16">
+                        @Model.Item1.FirstName.Substring(0, 1)
+                    </span>
+                </div>
+            }
+            <h5 class="font-size-15 mb-1 text-dark">@Model.Item1.FirstName @Model.Item1.LastName</h5><br />
+            <h5 class="font-size-15 mb-1">@Model.Item1.Email</h5>
+            <h5 class="font-size-15 mb-1">@Model.Item1.MobileNo</h5>
+            <div>
+                @foreach (EHealthCare.App_Start.Specialization specialization in Model.Item3)
+                {
+                    <span class="badge bg-primary font-size-11 m-1">@specialization.Name</span>
+                }
+            </div>
+        </div>
+
+        @if (Model.Item2)
+        {
+            <div class="card-footer bg-transparent border-top">
+                <div class="contact-links d-flex font-size-20">
+                    <div class="flex-fill">
+                        @Html.ActionLink(" ", "Detail", "Doctor", new { Id = Model.Item1.Id }, new { @class = "bx bx-user-circle", @title="View Profile" })
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

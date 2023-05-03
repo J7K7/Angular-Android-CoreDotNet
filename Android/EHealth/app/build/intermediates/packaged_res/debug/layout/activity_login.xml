@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@drawable/shape_bottom_radius"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent=".10"
+        app:layout_constraintStart_toStartOf="parent"
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="Log In"
+            android:textColor="@color/white"
+            android:textSize="24dp"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+
+        android:layout_margin="25dp"
+
+        app:cardCornerRadius="10dp"
+        app:cardElevation="10dp"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent=".80"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="15dp">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cvLoginActivityLogo"
+                android:layout_width="125dp"
+                android:layout_height="125dp"
+
+                app:cardCornerRadius="100dp"
+
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+
+                app:layout_constraintVertical_bias="0.1">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="25dp"
+
+                    android:src="@drawable/logo" />
+
+            </androidx.cardview.widget.CardView>
+
+            <EditText
+                android:id="@+id/etLoginActivityUsername"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+
+                android:background="@drawable/style_edittext"
+                android:hint="Username"
+
+                app:layout_constraintBottom_toTopOf="@id/etLoginActivityPassword"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cvLoginActivityLogo"
+
+                app:layout_constraintVertical_bias="0.1" />
+
+            <!--            <com.google.android.material.textfield.TextInputLayout-->
+            <!--                android:id="@+id/tilLoginActivityPassword"-->
+            <!--                android:layout_width="250dp"-->
+            <!--                android:layout_height="50dp"-->
+
+            <!--                android:clipToOutline="true"-->
+            <!--                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"-->
+            <!--                android:hint="Password"-->
+
+            <!--                app:layout_constraintBottom_toBottomOf="parent"-->
+            <!--                app:layout_constraintEnd_toEndOf="parent"-->
+            <!--                app:layout_constraintStart_toStartOf="parent"-->
+            <!--                app:layout_constraintTop_toBottomOf="@id/etLoginActivityUsername"-->
+
+            <!--                app:layout_constraintVertical_bias="0.1">-->
+
+            <!--                <com.google.android.material.textfield.TextInputEditText-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="match_parent" />-->
+
+
+            <!--            </com.google.android.material.textfield.TextInputLayout>-->
+
+            <EditText
+                android:id="@+id/etLoginActivityPassword"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="15dp"
+                android:background="@drawable/style_edittext"
+                android:hint="Password"
+                android:inputType="textPassword"
+
+                app:layout_constraintBottom_toTopOf="@id/btnLoginActivitySignIn"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/etLoginActivityUsername"
+
+                app:layout_constraintVertical_bias="0.1" />
+
+            <Button
+                android:id="@+id/btnLoginActivitySignIn"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="15dp"
+                android:backgroundTint="@color/customPrimary"
+                android:text="Sign In"
+
+                app:layout_constraintBottom_toTopOf="@id/btnLoginActivitySignUp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/etLoginActivityPassword"
+
+                app:layout_constraintVertical_bias="0.1" />
+
+            <Button
+                android:id="@+id/btnLoginActivitySignUp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="15dp"
+                android:backgroundTint="@color/white"
+                android:text="Sign up"
+                android:textColor="@color/customPrimary"
+
+                app:layout_constraintBottom_toTopOf="@id/cvLoginActivityDivider"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btnLoginActivitySignIn"
+
+                app:layout_constraintVertical_bias="0.05" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cvLoginActivityDivider"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+
+                android:layout_marginTop="15dp"
+
+                app:layout_constraintBottom_toTopOf="@id/ivLoginActivityGoogle"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btnLoginActivitySignUp"
+
+                app:layout_constraintVertical_bias="0.1" />
+
+            <ImageButton
+                android:id="@+id/ivLoginActivityGoogle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:src="@drawable/google"
+                android:backgroundTint="@color/white"
+                android:elevation="10dp"
+                app:circularflow_defaultRadius="100dp"
+
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cvLoginActivityDivider" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

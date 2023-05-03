@@ -1,0 +1,170 @@
+﻿@model (EHealthCare.App_Start.User, List<EHealthCare.App_Start.DoctorSchedule>, List<EHealthCare.App_Start.HospitalDoctor>, List<EHealthCare.App_Start.User>)
+
+@{
+    ViewBag.Title = "Doctor Detail";
+    Layout = "~/Areas/Hospital/Views/Shared/_Layout.cshtml";
+}
+
+@section style {
+    <link rel="stylesheet" type="text/css" href="~/Areas/Hospital/Content/css/dataTables.bootstrap4.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/Areas/Hospital/Content/css/responsive.bootstrap4.min.css" />
+}
+
+<div class="row">
+    @{
+        Html.RenderAction("DoctorCard", "Home", new { user = Model.Item1, IsLink = false });
+    }
+
+    <div class="col-xl-9 col-sm-12">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Scheduale</h4>
+                <div class="table-responsive">
+                    <table id="scheduale" class="table table-bordered dt-responsive nowrap w-100">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Day</th>
+                                <th>Morning Start Time</th>
+                                <th>Morning End Time</th>
+                                <th>Evening Start Time</th>
+                                <th>Evening End Time</th>
+                                <th>Emergency</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (EHealthCare.App_Start.DoctorSchedule schedule in Model.Item2)
+                            {
+                                <tr>
+                                    <td>@schedule.ScheduleDate.ToString("dd-MMM-yyyy")</td>
+                                    <td>@schedule.ScheduleDate.DayOfWeek</td>
+                                    <td>@schedule.MorningStart</td>
+                                    <td>@schedule.MorningEnd</td>
+                                    <td>@schedule.EveningStart</td>
+                                    <td>@schedule.EveningEnd</td>
+                                    <td>@schedule.IsEmergency</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-5 col-sm-12">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Doctors Specializations</h4>
+                <div class="table-responsive">
+                    <table id="specializations" class="table table-bordered dt-responsive nowrap w-100">
+                        <thead>
+                            <tr>
+                                <th>Sr</th>
+                                <th>Doctor</th>
+                                <th>Specializations</th>
+                                <th>Fees</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @{ int i = 1; }
+                            @foreach (EHealthCare.App_Start.HospitalDoctor doctor in Model.Item3)
+                            {
+                                <tr>
+                                    <td>@i</td>
+                                    <td>@doctor.DoctorSpecialization.User.FirstName @doctor.DoctorSpecialization.User.LastName</td>
+                                    <td>@doctor.DoctorSpecialization.Specialization.Name</td>
+                                    <td>@doctor.Fees</td>
+                                    <td>
+                                        @if (doctor.IsActive)
+                                        {
+                                            @Html.ActionLink(" ", "UpdateStatus", "Doctor", new { Id = doctor.Id, Status = false, DoctorId = Model.Item1.Id }, new { @class = "bx bx-user-check text-success fa-2x" })
+                                        }
+                                        else
+                                        {
+                                            @Html.ActionLink(" ", "UpdateStatus", "Doctor", new { Id = doctor.Id, Status = true, DoctorId = Model.Item1.Id }, new { @class = "bx bx-user-x text-danger fa-2x" })
+                                        }
+                                    </td>
+                                    @{i++; }
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-7 col-sm-12">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Patients</h4>
+                <div class="table-responsive">
+                    <table id="patients" class="table table-bordered dt-responsive nowrap w-100">
+                        <thead>
+                            <tr>
+                                <th>Sr</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Email</th>
+                                <th>Mobile No.</th>
+                                <th>Gender</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @{ i = 1; }
+                            @foreach (EHealthCare.App_Start.User patient in Model.Item4)
+                            {
+                                <tr>
+                                    <td>@i</td>
+                                    <td>@patient.FirstName</td>
+                                    <td>@patient.LastName</td>
+                                    <td>@patient.Email</td>
+                                    <td>@patient.MobileNo</td>
+                                    <td>@patient.Gender</td>
+                                    <td></td>
+                                    @{i++; }
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts {
+    <script src="~/Areas/Hospital/Content/js/jquery.dataTables.min.js"></script>
+    <script src="~/Areas/Hospital/Content/js/dataTables.bootstrap4.min.js"></script>
+    <script src="~/Areas/Hospital/Content/js/dataTables.buttons.min.js"></script>
+    <script src="~/Areas/Hospital/Content/js/dataTables.responsive.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#patients")
+                .DataTable({ lengthChange: 1 })
+                .buttons()
+                .container()
+                .appendTo("#datatable_wrapper .col-md-6:eq(0)"),
+                $(".dataTables_length select").addClass("form-select form-select-sm");
+
+            $("#specializations")
+                .DataTable({ lengthChange: 1 })
+                .buttons()
+                .container()
+                .appendTo("#datatable_wrapper .col-md-6:eq(0)"),
+                $(".dataTables_length select").addClass("form-select form-select-sm");
+
+            $("#scheduale")
+                .DataTable({ lengthChange: 1 })
+                .buttons()
+                .container()
+                .appendTo("#datatable_wrapper .col-md-6:eq(0)"),
+                $(".dataTables_length select").addClass("form-select form-select-sm");
+        });
+
+    </script>
+}

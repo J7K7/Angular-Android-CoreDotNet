@@ -1,0 +1,23 @@
+﻿<script src="~/Areas/Hospital/Content/js/jquery.min.js"></script>
+<script src="~/Areas/Hospital/Content/js/bootstrap.bundle.min.js"></script>
+<script src="~/Areas/Hospital/Content/js/metisMenu.min.js"></script>
+<script src="~/Areas/Hospital/Content/js/simplebar.min.js"></script>
+<script src="~/Areas/Hospital/Content/js/waves.min.js"></script>
+<script src="~/Areas/Hospital/Content/js/toastr.min.js"></script>
+<script src="~/Areas/Hospital/Content/js/toastr.init.js"></script>
+<script src="~/Areas/Hospital/Content/js/app.js"></script>
+
+<script type="text/javascript">
+    $(function () {
+        //toastr.options.showDuration = parseInt(300),
+        //    toastr.options.hideDuration = parseInt(1000),
+        //    toastr.options.timeOut = parseInt(5000),
+        //    toastr.options.extendedTimeOut = parseInt(1000),
+        //    toastr.options.showEasing = "swing",
+        //    toastr.options.hideEasing = "linear",
+        //    toastr.options.showMethod = "fadeIn",
+        //    toastr.options.hideMethod = "fadeOut";
+        if ('@TempData["Type"]' != '' && '@TempData["Title"]' != '' && '@TempData["Message"]' != '')
+            toastr['@TempData["Type"]']('@TempData["Message"]', '@TempData["Title"]');
+    });
+</script>
